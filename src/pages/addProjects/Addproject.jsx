@@ -2,6 +2,7 @@ import React from 'react';
 import './add.scss';
 import Sidebar from '../../components/Sidebar/Sidebar.jsx';
 import Navbar from '../../components/Navbar/Navbar.jsx';
+import Forms from '../../components/Forms/Forms.jsx';
 
 const Addproject = () => {
   return (
@@ -9,7 +10,7 @@ const Addproject = () => {
         <Sidebar/>
         <div className='listContainer'>
             <Navbar/>
-            add project
+            <Forms/>
         </div>
     </div>
   )
