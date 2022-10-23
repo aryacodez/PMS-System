@@ -1,0 +1,93 @@
+.sidebar{
+    flex: 1;    
+    min-height: 100vh;
+    border-right: 0.6px solid lightgray;
+    background-color: white;
+    .top{
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo{
+        font-size: 21px;
+        font-weight: 600;
+        color: rgb(223, 125, 33);        
+    }
+    
+    .center{
+        padding-left:10px;        
+        ul{
+            list-style:none;
+            margin:0;
+            padding:0;
+            padding-top:7px;
+            li{
+                display:flex;                
+                padding:5px;
+                cursor:pointer;
+                font-size:15px;
+                font-weight: 400;
+                color:rgb(23, 30, 51);
+                &:hover{
+                    background-color:rgba(239, 231, 231, 0.992);
+                }
+
+                .icon{
+                    font-size: 18px;   
+                    margin-right: 5px;                 
+                    color:rgb(223, 125, 33);
+                }
+                
+                .sub{
+                    margin-top:20px;
+                    margin-left: -45px;
+                }
+                .sub2{
+                    margin-top:20px;
+                    margin-left:-25px;
+                }
+                .sub7{
+                    margin-left:-25px;
+                    margin-top:2px;
+                }
+                .sub1{
+                    margin-left: -45px;
+                    margin-top:2px;
+                }
+                .sub3{
+                    margin-top:20px;
+                    margin-left:-60px;
+                }
+                .sub4{
+                    margin-left:-60px;
+                    margin-top:2px;
+                }
+                .sub5{
+                    margin-top:20px;
+                    margin-left:-30px;
+                }
+                .sub6{
+                    margin-top:2px;
+                    margin-left:-30px;
+                }      
+                .icon1{
+                    font-size:13px;
+                    color:rgb(144, 144, 144);
+                }     
+
+                .collapse{
+                    display:none;
+                }
+
+            }
+            
+            
+
+            
+        }
+    }
+
+
+}
