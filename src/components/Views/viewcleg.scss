@@ -1,0 +1,31 @@
+.tableformat{
+    margin-top:35px;  
+    margin-left: 13px;     
+
+    h3{
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        color:rgb(24, 23, 23);
+        font-weight: 600;
+        font-size: 22px;
+        margin-bottom:20px;
+    }
+   
+}
+
+.actionCell{
+    .deleteButton{
+        button{
+            background-color:white;
+            color:dodgerblue;
+            font-size: 15px;
+            font-weight: 500;
+            border-color:dodgerblue;
+            border-radius: 4px;
+            width:130%;
+            height:35px;
+        }
+    }
+    
+}

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import emailjs from 'emailjs-com'
 
 const Forms1 = () => {
@@ -11,20 +11,27 @@ const Forms1 = () => {
     const [email, setEmail] = useState("");
     const [msg, setMsg] = useState("");
     const [isPending, setisPending] = useState(false);
+    const [table, setTable] = useState([]);
+    
 
     const form = useRef();
 
-    // let sendEmail = (e) => {
-    //     e.preventDefault();
-
-    //     emailjs.sendForm('service_z2awi1a', 'template_xl90pww', form.current, 'q9xVXQ0TxitheX1LQ')
-    //     .then((result) => {
-    //         console.log(result.text);
-    //     }, (error) => {
-    //         console.log(error.text);
-    //     });
+    useEffect(() => {
+        fetch('http://localhost:4000/users', {
+            method: 'GET'
+        })
+            .then((users) => users.json())
+            .then((users) => setTable(users))
+    }, [])
     
-    // };
+    const tab = table;
+    console.log(tab);
+
+    let handleSelect = (e) => {
+        setProjname(e.target.value)
+        console.log(e.target.value)
+    }
+    
 
     let handleSubmit = (e) => {
         e.preventDefault();
@@ -45,16 +52,21 @@ const Forms1 = () => {
             console.log("Member Added and Email Sent successfully")
             setisPending(false);
         }).then(() => {
-            emailjs.sendForm('service_z2awi1a', 'template_xl90pww', form.current, 'q9xVXQ0TxitheX1LQ')
+            emailjs.sendForm('service_z2awi1a', 'template_r3u7si9', form.current, 'q9xVXQ0TxitheX1LQ')
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
                 console.log(error.text);
             });
+        }).then(()=>{
+            setTimeout(()=>{
+                setMsg("");
+            },1200)
         })
-
     }
+
     
+
     return (
         <div className='main'>
             <form ref={form} onSubmit={handleSubmit} className='proforms'>
@@ -82,18 +94,18 @@ const Forms1 = () => {
                     onChange={(e)=>setDesg(e.target.value)}
                 /><br></br>
                 <label>Project Name</label><br></br>
-                <input
-                    required
-                    type='text'
-                    value={projname}
-                    name="member_project"
-                    onChange={(e)=>setProjname(e.target.value)}
-                /><br></br>
+                <select onChange={handleSelect} className='sel' name='member_project'>
+                    <option value=''></option>
+                    {tab.map((project) =>
+                        <option value={project.name}>{project.name}</option>
+                    )}
+                </select><br></br>
                 <label>Mobile Number</label><br></br>
                 <input
                     required
                     type='text'
                     value={num}
+                    maxLength='10'
                     onChange={(e)=>setNum(e.target.value)}
                 /><br></br>
                 <label>Email ID</label><br></br>
@@ -101,7 +113,7 @@ const Forms1 = () => {
                     required
                     type='email'
                     value={email}
-                    name="member_email"
+                    name="to_email"
                     onChange={(e)=>setEmail(e.target.value)}
                 /><br></br>
                 <div className='buttonshadow'>

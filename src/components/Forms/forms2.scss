@@ -7,7 +7,7 @@
     
     .proforms{
         display:block;
-        padding-top:35px;
+        padding-top:20px;
         
         h1{
             padding-bottom:25px; 
@@ -19,7 +19,7 @@
             font-size:18px;
             font-weight: 400;
         }
-        input{
+        input,select{
             margin-top:10px;
             margin-bottom:15px;
             width: 100%;
@@ -37,11 +37,11 @@
                 box-shadow: 0px 0px 8px 3px rgba(30,74,150,0.57);
             }
         }
-        // .brief{
-        //     padding-top: 20px;
-        //     padding-bottom: 20px;
-        //     text-align: justify;
-        // }
+        .brief{
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: justify;
+        }
 
         .buttonshadow,.msgg{            
             display: flex;
@@ -80,22 +80,14 @@
             font-weight: 600;
             opacity: 0.6;
         }
-        .sel{
-            margin-top:10px;
-            margin-bottom:15px;
+        .select{
             width: 104%;
-            padding: 5px;
-            border-width: 2px;
-            border-style: inset;
-            border-radius: 8px;
-            box-shadow: 3px 3px 1px rgba(71,75,77,.44);
-            text-shadow: -50px 0px 0px rgba(66,66,66,.0);
-            width: 104%;
-            &:focus{
-                -webkit-box-shadow:0px 0px 8px 3px rgba(30,74,150,0.57);
-                -moz-box-shadow: 0px 0px 8px 3px rgba(30,74,150,0.57);
-                box-shadow: 0px 0px 8px 3px rgba(30,74,150,0.57);
-            }
+        }
+        span{
+            color:crimson;
+        }
+        p{
+            margin-bottom: 8px;
         }
         
     }

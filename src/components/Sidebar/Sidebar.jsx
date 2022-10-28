@@ -1,4 +1,5 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
+import {Link} from 'react-router-dom'
 import './sidebar.scss';
 import DashboardCustomizeRoundedIcon from '@mui/icons-material/DashboardCustomizeRounded';
 import AccountTreeRoundedIcon from '@mui/icons-material/AccountTreeRounded';
@@ -23,17 +24,17 @@ const Sidebar = () => {
         <ul>
           <li>
             <DashboardCustomizeRoundedIcon className='icon'/>
-            <span>Dashboard</span>
+            <Link to='/' className='link'><span>Dashboard</span></Link>
           </li>          
           <li onClick={()=>setDropdownActive(!isDropdownActive)}>
             <AccountTreeRoundedIcon className='icon'/>
             <span>Projects <ArrowDropDownRoundedIcon className='icon1'/></span>
             <ul className={isDropdownActive?"list-unstyled collapse":"list-unstyled"}>
               <li className='sub'>
-                <span>Add Projects</span>
+                <Link to='/project' className='link'><span>Add Projects</span></Link>
               </li>
               <li className='sub1'>
-                <span>View Projects</span>
+                <Link to='/project/viewProject' className='link'><span>View Projects</span></Link>
               </li>
             </ul>
           </li>
@@ -54,10 +55,10 @@ const Sidebar = () => {
             <span>Colleague <ArrowDropDownRoundedIcon className='icon1'/></span>
             <ul className={isDropdownActive2?"list-unstyled collapse":"list-unstyled"}>
               <li className='sub3'>
-                <span>Add Colleague</span>
+                <Link to='/members' className='link'><span>Add Colleague</span></Link>
               </li>
               <li className='sub4'>
-                <span>View Colleague</span>
+                <Link to='/members/viewmembers' className='link'><span>View Colleague</span></Link>
               </li>
             </ul>
           </li>
@@ -66,10 +67,10 @@ const Sidebar = () => {
             <span>Client <ArrowDropDownRoundedIcon className='icon1'/></span>
             <ul className={isDropdownActive3?"list-unstyled collapse":"list-unstyled"}>
               <li className='sub5'> 
-                <span>Add Clients</span>
+                <Link to='/client' className='link'><span>Add Clients</span></Link>
               </li>
               <li className='sub6'>
-                <span>View Clients</span>
+                <Link to='/client/viewclient' className='link'><span>View Clients</span></Link>
               </li>
             </ul>
           </li>

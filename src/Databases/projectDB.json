@@ -52,36 +52,253 @@
   ],
   "colleague": [
     {
-      "id": "3",
-      "mname": "hfhd",
-      "desg": "adshvhs",
-      "projname": "sdafvhdash",
-      "num": "7865955",
-      "email": "surya@gmail.com"
-    },
-    {
-      "id": "888",
+      "id": "94599",
       "mname": "Mahesh",
-      "desg": "SDE",
-      "projname": "MERN",
-      "num": "46655656166",
+      "desg": "asjgud",
+      "projname": "sadih",
+      "num": "596595265",
       "email": "suryasarkar728@gmail.com"
     },
     {
-      "id": "455",
+      "id": "5565",
       "mname": "Mahesh",
-      "desg": "SDE 2",
-      "projname": "MERN",
-      "num": "79626556",
+      "desg": "sde",
+      "projname": "Travel Website Using MEAN",
+      "num": "98959456",
       "email": "suryasarkar728@gmail.com"
     },
     {
-      "id": "102455",
-      "mname": "dftyfgjhn",
-      "desg": "gfchgv",
-      "projname": "vhgj",
-      "num": "7059264",
+      "id": "1666",
+      "mname": "SAJGVJ",
+      "desg": "SDDSKN",
+      "projname": "Android App",
+      "num": "9498266559",
       "email": "suryasarkar728@gmail.com"
+    }
+  ],
+  "client": [
+    {
+      "id": "446",
+      "cname": "Zamon",
+      "comp": "XLMG LTD",
+      "num": "95292694616",
+      "email": "xlmg@gmail.com"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "62626",
+      "name": "yggy",
+      "desc": "",
+      "start": "2022-10-27",
+      "end": "2022-10-29",
+      "proname": "Android App",
+      "files": "blob:http://localhost:3000/5b1a5b1d-a285-48a5-ac43-2e14bbe801e4"
+    },
+    {
+      "id": "443",
+      "name": "vzxvx",
+      "desc": "",
+      "start": "2022-10-29",
+      "end": "2022-10-31",
+      "proname": "Travel Website Using html ",
+      "files": ""
+    },
+    {
+      "id": "daFG",
+      "name": "DSGg",
+      "desc": "",
+      "start": "2022-10-27",
+      "end": "2022-10-29",
+      "proname": "Travel Website Using html ",
+      "files": ""
+    },
+    {
+      "id": "84994",
+      "name": "jdfgdsfjh",
+      "desc": "",
+      "start": "2022-10-27",
+      "end": "2022-10-29",
+      "proname": "Mern",
+      "files": ""
+    },
+    {
+      "id": "000",
+      "name": "xnh",
+      "desc": "",
+      "start": "2022-10-28",
+      "end": "2022-10-29",
+      "proname": "Work Done",
+      "files": ""
+    },
+    {
+      "id": "5555",
+      "name": "b,k,gm",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "MERN",
+      "files": ""
+    },
+    {
+      "id": "56568",
+      "name": "fhddjf",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "MERN",
+      "files": ""
+    },
+    {
+      "id": "6546",
+      "name": "thdshz",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Travel Website Using html ",
+      "files": ""
+    },
+    {
+      "id": "4546",
+      "name": "gfx",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Travel Website Using MEAN",
+      "files": ""
+    },
+    {
+      "id": "685465",
+      "name": "ghzfbngh",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Work Done",
+      "files": ""
+    },
+    {
+      "id": "886",
+      "name": "fghmh",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Android App",
+      "files": ""
+    },
+    {
+      "id": "55d",
+      "name": "bd",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "MERN",
+      "files": ""
+    },
+    {
+      "id": "532",
+      "name": "adf",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "MERN",
+      "files": ""
+    },
+    {
+      "id": "55",
+      "name": "SG",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Travel Website Using MEAN",
+      "files": ""
+    },
+    {
+      "id": "5665",
+      "name": "hdz",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Java Development",
+      "files": ""
+    },
+    {
+      "id": "554",
+      "name": "dghz",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Travel Website Using MEAN",
+      "files": ""
+    },
+    {
+      "id": "5499",
+      "name": "fds",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Travel Website Using html ",
+      "files": ""
+    },
+    {
+      "id": "56",
+      "name": "fggf",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Travel Website Using MEAN",
+      "files": ""
+    },
+    {
+      "id": "545",
+      "name": "fxgj",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Android App",
+      "files": ""
+    },
+    {
+      "id": "65",
+      "name": "djasfbjds",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Travel Website Using html ",
+      "files": ""
+    },
+    {
+      "id": "599",
+      "name": "dfj",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Mern",
+      "url": ""
+    },
+    {
+      "id": "7998",
+      "name": "hbDF",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Travel Website Using MEAN",
+      "url": ""
+    },
+    {
+      "id": "95659",
+      "name": "jfbj",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Android App"
+    },
+    {
+      "id": "2995",
+      "name": "gzdh",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Android App"
     }
   ]
 }
