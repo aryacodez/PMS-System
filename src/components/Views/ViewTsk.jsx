@@ -1,6 +1,6 @@
 import React , {useState,useEffect} from 'react'
 import './viewtsk.scss'
-import { DataGrid } from '@mui/x-data-grid'
+import { DataGrid, GridToolbar } from '@mui/x-data-grid'
 
 const columns = [
     { field: 'id', headerName: 'Task ID' },
@@ -104,12 +104,15 @@ const ViewTsk = () => {
     }
 
     return (
-        <div style={{ height: 700, width: '98%' }} className='tableformat'>
-            <h3>Client Details</h3>
+        <div style={{ height: 600, width: '98%' }} className='tableformat'>
+            <h3>Tasks Details</h3>
             <DataGrid
                 rows={table}
                 columns={columns.concat(getFile,action)} 
                 pageSize={15}
+                components={{
+                    Toolbar: GridToolbar,
+                }}
             />
         </div>
     )

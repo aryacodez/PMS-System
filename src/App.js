@@ -7,57 +7,31 @@ import ViewColleague from './pages/viewColleagues/viewColleague.jsx'
 import Client from './pages/client/Client.jsx'
 import ViewClient from './pages/viewClient/viewClient.jsx'
 import AddTask from './pages/addTask/AddTask.jsx'
-import ViewTask from './pages/viewTask/viewTask.jsx'
+import ViewTask from './pages/viewTask/ViewTask'
 
-import './index.css'
+import Profile from './pages/Profile/Profile.jsx'
 
 import { Routes, Route } from 'react-router-dom';
 
-
 function App() {
-  
   return (
-
-    // <div className="App">
-      
-    //   <Routes>
-    //     <Route exact path='/'>
-    //         <Route index element={<Home />} />
-    //         <Route path='login' element={<Login />} />
-    //       <Route exact path='project'>
-    //           <Route index element={<AddProjects />} />
-    //           <Route exact path='viewProject' element={<ViewProjects />} />
-    //         </Route>
-    //         <Route path='members'>
-    //           <Route index element={<Colleague />} />
-    //           <Route path='viewcolleague' element={<ViewColleague />} />
-    //         </Route>
-    //         <Route path='client'>
-    //           <Route index element={<Client />} />
-    //           <Route path='viewclient' element={<ViewClient />} />
-    //         </Route>
-    //     </Route>
-    //   </Routes>
-      
-    // </div>
-
     <>
       <Routes>
-        <Route exact path='/landing' element={<Landing/>} />
-        <Route exact path='/' element={<Home/>} />
-        <Route exact path='/project' element={<AddProjects/>} />
+        <Route exact path='/landing' element={<Landing />} />
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/project' element={<AddProjects />} />
         <Route exact path='/project/viewProject' element={<ViewProjects />} />
-        <Route exact path='/members' element={<Colleague/>} />
-        <Route exact path='/members/viewmembers' element={<ViewColleague/>} />
-        <Route exact path='/client' element={<Client/>} />
-        <Route exact path='/client/viewclient' element={<ViewClient />} />   
+        <Route exact path='/members' element={<Colleague />} />
+        <Route exact path='/members/viewmembers' element={<ViewColleague />} />
+        <Route exact path='/client' element={<Client />} />
+        <Route exact path='/client/viewclient' element={<ViewClient />} />
         <Route exact path='/task' element={<AddTask />} />
-        <Route exact path='/task/viewtask' element={<ViewTask/>}/>
-        
+        <Route exact path='/task/viewtask' element={<ViewTask />} />
+        <Route exact path='/profile' element={<Profile />} />
       </Routes>
     </>
-    
   );
+
 }
 
-export default App;
+  export default App;

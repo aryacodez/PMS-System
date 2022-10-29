@@ -8,13 +8,6 @@
       "end": "2022-06-12"
     },
     {
-      "id": 102,
-      "name": "Travel Website Using MEAN",
-      "desc": "Create a Dynamic website",
-      "start": "2022-05-17",
-      "end": "2022-06-22"
-    },
-    {
       "id": "103",
       "name": "Android App",
       "desc": "Travel",
@@ -48,6 +41,14 @@
       "desc": "hdsfhhds",
       "start": "2022-12-13",
       "end": "2022-10-28"
+    },
+    {
+      "id": "18666",
+      "name": "PMS System using MERN",
+      "desc": "",
+      "start": "2022-10-19",
+      "end": "2022-10-30",
+      "diffdates": 11
     }
   ],
   "colleague": [
@@ -60,20 +61,36 @@
       "email": "suryasarkar728@gmail.com"
     },
     {
-      "id": "5565",
-      "mname": "Mahesh",
-      "desg": "sde",
-      "projname": "Travel Website Using MEAN",
-      "num": "98959456",
-      "email": "suryasarkar728@gmail.com"
-    },
-    {
       "id": "1666",
       "mname": "SAJGVJ",
       "desg": "SDDSKN",
       "projname": "Android App",
       "num": "9498266559",
       "email": "suryasarkar728@gmail.com"
+    },
+    {
+      "id": "14896",
+      "mname": "Arya",
+      "desg": "Analyst",
+      "projname": "Travel Website Using html ",
+      "num": "7044780817",
+      "email": "arya.08.as44@gmail.com"
+    },
+    {
+      "id": "10258",
+      "mname": "Faizan",
+      "desg": "SDE",
+      "projname": "MERN Stack application",
+      "num": "4569656526",
+      "email": "iamanwarfaizan@gmail.com"
+    },
+    {
+      "id": "5669",
+      "mname": "XYZ",
+      "desg": "SDE",
+      "projname": "PMS System using MERN",
+      "num": "55965",
+      "email": "xyz@gmail.com"
     }
   ],
   "client": [
@@ -299,6 +316,49 @@
       "start": "",
       "end": "",
       "proname": "Android App"
+    },
+    {
+      "id": "464163156458",
+      "name": " bsdhvh",
+      "desc": "",
+      "start": "",
+      "end": "",
+      "proname": "Android App"
+    },
+    {
+      "id": "60521",
+      "name": "Add Navbar",
+      "desc": "",
+      "start": "2022-10-26",
+      "end": "2022-10-27",
+      "proname": "MERN Stack application"
+    },
+    {
+      "id": "1563",
+      "name": "Add Sidebar",
+      "desc": "",
+      "start": "2022-10-05",
+      "end": "2022-10-08",
+      "proname": "PMS System using MERN"
+    }
+  ],
+  "profile": [
+    {
+      "id": "7489",
+      "name": "arya",
+      "address": "",
+      "desg": "",
+      "email": "",
+      "password": "",
+      "num": "",
+      "work": "",
+      "files": {}
+    }
+  ],
+  "count": [
+    {
+      "count": 0,
+      "id": 1
     }
   ]
 }

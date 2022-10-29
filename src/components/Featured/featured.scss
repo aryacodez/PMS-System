@@ -5,7 +5,7 @@
     -moz-box-shadow: 1px -2px 22px 5px rgba(143,132,132,0.24);
     border-radius: 15px;
     padding: 10px;
-
+    background-color: #f8ffe2;
 
     .top{        
         display:flex;
@@ -16,9 +16,10 @@
         
         .heading{
             font-size: 22px;
-            font-weight: 500;
+            font-weight: 600;
             display: block;
-            align-items:center;            
+            align-items:center;     
+            color:#0b2e59;       
         }
        
         .bottom{

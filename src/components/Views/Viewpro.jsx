@@ -1,6 +1,6 @@
 import './viewpro.scss'
 import React, { useState, useEffect } from 'react'
-import { DataGrid } from '@mui/x-data-grid'
+import { DataGrid,GridToolbar  } from '@mui/x-data-grid'
 
 const columns =[
     {field:'id',headerName:'Project ID'},
@@ -15,22 +15,41 @@ const columns =[
 
 const Viewpro = () => {
 
+//action to perfrom: DELETE SINGLE ROW FROM TABLE WHEN CLICKED
 const action=[
     {
         field:'action',
         headerName:'Action',
         width:130,
-        renderCell:()=>{
+        renderCell:(id)=>{
             return(
                 <div className='actionCell'>
                     <div className='deleteButton'>
-                        <button type='submit'>Delete</button>
+                        <button type='submit' onClick={()=>handleDelete(id)}>Delete</button>
                     </div>
                 </div>
             )
         }
     },
 ]
+
+
+// const [complete,setComplete]=useState(0);
+// const [inprogress,setInProgress] = useState(0);
+// const [incomplete,setIncomplete] = useState(0);
+// const [isPending,setisPending]=useState(false);
+
+
+
+
+
+
+
+
+
+
+
+
 
 const status=[
     {
@@ -42,9 +61,9 @@ const status=[
                 <div className='statusCell'>
                     <select name='Status' className='selectBox'>
                         <option value=""></option>
-                        <option value='Completed'>Completed</option>
-                        <option value='In Progress'>In Progress</option>
-                        <option value='InComplete'>InComplete</option>
+                        <option value='complete'>Completed</option>
+                        <option value='inprogress'>In Progress</option>
+                        <option value='incomplete'>In Complete</option>
                     </select>
                 </div>
             )
@@ -52,6 +71,7 @@ const status=[
     }
 ]
 
+//set data into table from REST API
 const [table,setTable] = useState([])
 useEffect(()=>{
     fetch('http://localhost:4000/users/',{
@@ -61,13 +81,33 @@ useEffect(()=>{
     .then((users)=>setTable(users))
 },[])
 console.log(table);
+
+
+
+//controller for delete button to delete record from table
+const [user,setUser]=useState(table);
+let handleDelete=(project)=>{
+
+    setUser(user.filter((user) => user.id !== project.id));
+    // console.log(clickedUser.id);    
+
+    fetch('http://localhost:4000/users/'+project.id,{
+        method:'DELETE'
+    }).then(()=>{
+        window.location.reload(true);
+    })
+};
+
 return (
-    <div style={{ height: 700, width: '98%' }} className='tableformat'>
+    <div style={{ height: 600, width: '98%' }} className='tableformat'>
         <h3>Project Details</h3>
         <DataGrid
             rows={table}
             columns={columns.concat(action,status)}
-            pageSize={12}
+            pageSize={15}
+            components={{
+                Toolbar: GridToolbar,
+            }}
         />
     </div>
   )

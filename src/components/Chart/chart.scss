@@ -5,15 +5,19 @@
     -moz-box-shadow: 1px -2px 22px 5px rgba(143,132,132,0.24);
     border-radius: 15px;
     padding: 10px;
+    background-color: #f8ffe2;
+    
+    
 
-    h2{
-        color:gray;
-        font-weight: 500;
+    h3{
+        
+        font-weight: 600;
         font-size: 22px;
         display: flex;
         align-items:center;         
         justify-content:space-around;
         padding-top:15px;
         padding-bottom: 15px;
+        color:#0b2e59;
     }
 }

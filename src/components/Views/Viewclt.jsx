@@ -1,6 +1,6 @@
 import './viewclt.scss'
 import React, { useState, useEffect } from 'react'
-import { DataGrid } from '@mui/x-data-grid'
+import { DataGrid,GridToolbar } from '@mui/x-data-grid'
 
 
 const columns = [
@@ -55,12 +55,15 @@ const Viewclt = () => {
     }
 
     return (
-        <div style={{ height: 700, width: '98%' }} className='tableformat'>
+        <div style={{ height: 600, width: '98%' }} className='tableformat'>
             <h3>Client Details</h3>
             <DataGrid
                 rows={table}
                 columns={columns.concat(action)} 
                 pageSize={15}
+                components={{
+                    Toolbar: GridToolbar,
+                }}
             />
         </div>
     )

@@ -1,46 +1,94 @@
 import React,{useState} from 'react'
 import './forms.scss'
 const Forms = () => {
+    
+    
+
+    // function incr(){
+    //     setCount(c=>c+1);
+    //     console.log(count);
+    //     const increment={count};
+    //     fetch('http://localhost:4000/count/1',{
+    //         method:'PUT',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify(increment)
+    //     }).then(()=>{
+    //         console.log('INCREMENTED!!!');
+    //     })
+    // }
+    
+    
+
     const [id,setId]=useState("");
     const [name,setName]=useState("");
     const [desc,setDesc]=useState("");
     const [start,setStart]=useState("");
     const [end,setEnd]=useState("");
-    const [msg,setMsg]=useState("");
+    const [msg,setMsg]=useState("");    
     const [isPending,setisPending]=useState(false);
+    const [count,setCount]=useState(0);
+    let diffdays=(date1,date2)=>{
+        const diff = Math.abs(date2-date1);
+        return diff/(1000*60*60*24);
+    };
 
     let handleSubmit=(e)=>{
-        e.preventDefault();         
-        const pms={id,name,desc,start,end};        
+        e.preventDefault();          
+        
+        var diffdates=0;
+        const date1 = new Date(start);
+        const date2 = new Date(end);
+        diffdates=diffdays(date1, date2);
+        
+
+
+        const pms={id,name,desc,start,end,diffdates}; 
         setisPending(true);
         fetch('http://localhost:4000/users',{
             method:'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(pms)            
+            body: JSON.stringify(pms)     
         }).then(()=>{
             setId("");
             setName("");
             setDesc("");
             setStart("");
-            setEnd("");
+            setEnd("");            
             setMsg("Data Added Successfully!!!");
             console.log('Data Added Sucessfully');
             setisPending(false);
+        }).then(()=>{
+            setTimeout(()=>{
+                setMsg("");
+            },1500)
+        });
+
+
+        setCount(c=>c+1);
+        const c= {count};
+        fetch('http://localhost:4000/count/1',{
+            method:'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(c)     
+        }).then(()=>{
+            console.log("Incremented Successfully");
         })
+
     };
 
   return (
     <div className='main'>        
         <form onSubmit={handleSubmit} className='proforms'>
-            <h1>Add New Project</h1>
-            <label>Project ID</label><br></br>
+            <h2>Add New Project</h2>
+            <p>Mandatory(<span>*</span>)</p>
+            <label>Project ID<span> *</span></label><br></br>
             <input
                 required
                 type='text'
                 value={id}
                 onChange={(e)=>setId(e.target.value)}
             /><br></br>
-            <label>Project Name</label><br></br>
+            <label>Project Name<span> *</span></label><br></br>
             <input
                 required
                 type='text'
@@ -70,7 +118,7 @@ const Forms = () => {
                {!isPending  && <button type='submit'>Create</button>}
                {isPending  && <button disabled>Create...</button>}
             </div>
-
+            
             <div className='msgg'>{msg?<p>{msg}</p>:null}</div>
             
         </form>

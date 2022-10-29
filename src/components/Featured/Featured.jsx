@@ -1,10 +1,22 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './featured.scss'
 import Chart from "react-apexcharts";
+import { useEffect } from 'react';
 
 
 const Featured = () => {
+    // const [table,setTable] = useState([]);
+    // useEffect(()=>{
+    //     fetch('http://localhost:4000/count/1', {
+    //         method: 'GET'
+    //     }).then((count)=>count.json())
+    //     .then((count)=>setTable(count))
+    // },[])
 
+    // const tab = table;
+    // var arr= tab.map(i=>`${i.count}`);    
+    // var c= parseInt(arr[0])
+    // console.log(c);
     const options={
         series:[30,15,45],
         labels:['Project Completed','Task Completed','Issues Pending'],
@@ -23,7 +35,7 @@ const Featured = () => {
                 options={options}
                 series={series}
                 type='donut'
-                width="130%"
+                width="140%"
                 height={800}
                 />
             </div>

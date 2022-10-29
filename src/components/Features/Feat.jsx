@@ -3,7 +3,9 @@ import './feat.scss'
 import BeenhereRoundedIcon from '@mui/icons-material/BeenhereRounded';
 import VerifiedRoundedIcon from '@mui/icons-material/VerifiedRounded';
 import PendingActionsRoundedIcon from '@mui/icons-material/PendingActionsRounded';
-const feat = ({type}) => {
+
+const feat = ({type}) => {  
+
 
     let res;    
     switch(type){
@@ -16,7 +18,7 @@ const feat = ({type}) => {
             break;
         case 'issue':
             res={
-                heading: "Task Completed",
+                heading: "Task accomplish",
                 data:15,
                 icon:<VerifiedRoundedIcon className='icon1'/>
             }
@@ -32,9 +34,9 @@ const feat = ({type}) => {
             break;
     }
   return (
-    <div className="feat">
+    <div className="feat">        
         <div className='left'>
-            {res.icon}
+            <div className='iconic'>{res.icon}</div>
             <span className='proleft'>{res.data}</span>
             <span className='heading'>{res.heading}</span>          
 
