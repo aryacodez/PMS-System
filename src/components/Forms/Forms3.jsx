@@ -40,15 +40,16 @@ const Forms1 = () => {
     return (
         <div className='main'>
             <form  onSubmit={handleSubmit} className='proforms'>
-                <h1>Add New Member</h1>
-                <label>Client ID</label><br></br>
+                <h1 style={{color:'#494e56'}}>Add New Client</h1>
+                <p>Mandatory(<span>*</span>)</p>
+                <label>Client ID<span> *</span></label><br></br>
                 <input
                     required
                     type='text'
                     value={id}
                     onChange={(e)=>setId(e.target.value)}
                 /><br></br>
-                <label>Client Name</label><br></br>
+                <label>Client Name<span> *</span></label><br></br>
                 <input
                     required
                     type='text'
@@ -57,21 +58,19 @@ const Forms1 = () => {
                     onChange={(e)=>setCname(e.target.value)}
                 /><br></br>
                 <label>Company Name</label><br></br>
-                <input
-                    required
+                <input                    
                     type='text'
                     value={comp}
                     onChange={(e)=>setComp(e.target.value)}
                 /><br></br>
                 <label>Mobile Number</label><br></br>
-                <input
-                    required
+                <input                    
                     type='text'
                     value={num}
                     maxLength='10'
                     onChange={(e)=>setNum(e.target.value)}
                 /><br></br>
-                <label>Email ID</label><br></br>
+                <label>Email ID<span> *</span></label><br></br>
                 <input
                     required
                     type='email'

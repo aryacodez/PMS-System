@@ -21,19 +21,24 @@ const Sidebar = () => {
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
           <span className="logo">PMS System</span>
-        </Link>
+        </Link>        
       </div>
+      <hr style={{
+        height:'0.5px',
+        border:'none',
+        background: 'lightgray'
+      }}/>
       <div className="center">
         <ul>
           <Link to="/" style={{ textDecoration: "none" }}>
             <li className='align'>
               <DashboardCustomizeRoundedIcon className='icon' />
-              <span clasName='header'>Dashboard</span>
+              <span className='header'>Dashboard</span>
             </li>
           </Link>
           <li onClick={() => setDropdownActive(!isDropdownActive)} className='align'>
             <AccountTreeRoundedIcon className='icon' />
-            <span clasName='header'>Projects <ArrowDropDownRoundedIcon className='icon1' /></span>
+            <span className='header'>Projects <ArrowDropDownRoundedIcon className='icon1' /></span>
             <ul className={isDropdownActive ? "list-unstyled collapse" : "list-unstyled"}>
               <Link to="/project" style={{ textDecoration: "none" }}>
                 <li className='sub'>
@@ -49,7 +54,7 @@ const Sidebar = () => {
           </li>
           <li onClick={() => setDropdownActive1(!isDropdownActive1)} className='align'>
             <AddTaskRoundedIcon className='icon' />
-            <span clasName='header'>Work <ArrowDropDownRoundedIcon className='icon1' /></span>
+            <span className='header'>Work <ArrowDropDownRoundedIcon className='icon1' /></span>
             <ul className={isDropdownActive1 ? "list-unstyled collapse" : "list-unstyled"}>
               <Link to="/task" style={{ textDecoration: "none" }}>
                 <li className='sub2'>
@@ -65,7 +70,7 @@ const Sidebar = () => {
           </li>
           <li onClick={() => setDropdownActive2(!isDropdownActive2)} className='align'>
             <Groups2RoundedIcon className='icon' />
-            <span clasName='header'>Colleague <ArrowDropDownRoundedIcon className='icon1' /></span>
+            <span className='header'>Colleague <ArrowDropDownRoundedIcon className='icon1' /></span>
             <ul className={isDropdownActive2 ? "list-unstyled collapse" : "list-unstyled"}>
               <Link to="/members" style={{ textDecoration: "none" }}>
                 <li className='sub3'>
@@ -81,7 +86,7 @@ const Sidebar = () => {
           </li>
           <li onClick={() => setDropdownActive3(!isDropdownActive3)} className='align'>
             <Person2RoundedIcon className='icon' />
-            <span clasName='header'>Client <ArrowDropDownRoundedIcon className='icon1' /></span>
+            <span className='header'>Client <ArrowDropDownRoundedIcon className='icon1' /></span>
             <ul className={isDropdownActive3 ? "list-unstyled collapse" : "list-unstyled"}>
               <Link to="/client" style={{ textDecoration: "none" }}>
                 <li className='sub5'>
@@ -98,14 +103,14 @@ const Sidebar = () => {
           <Link to="/profile" style={{ textDecoration: "none" }}>
             <li className='align'>
               <PortraitRoundedIcon className='icon' />
-              <span clasName='header'>Profile</span>
+              <span className='header'>Profile</span>
             </li>
           </Link>
           <div className='out'>
             <Link to="/landing" style={{ textDecoration: "none" }}>
-              <li className='align'>
+              <li className='logout'>
                 <LogoutRoundedIcon className='icon' />
-                <span clasName='header'>Logout</span>
+                <span className='header'>Logout</span>
               </li>
             </Link>
           </div>

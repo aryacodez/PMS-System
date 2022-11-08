@@ -5,29 +5,21 @@ import { useEffect } from 'react';
 
 
 const Featured = () => {
-    // const [table,setTable] = useState([]);
-    // useEffect(()=>{
-    //     fetch('http://localhost:4000/count/1', {
-    //         method: 'GET'
-    //     }).then((count)=>count.json())
-    //     .then((count)=>setTable(count))
-    // },[])
-
-    // const tab = table;
-    // var arr= tab.map(i=>`${i.count}`);    
-    // var c= parseInt(arr[0])
-    // console.log(c);
+    // const [chart,setChart]=useState({});
+    // const charts=()=>{
+    //     let count=[];
+    // }
     const options={
         series:[30,15,45],
         labels:['Project Completed','Task Completed','Issues Pending'],
-        colors:['#F97641','#2AECAB','#B5B1C6']
+        colors:['#3F51B5','#2AECAB','#1890FF']
     };
     const series=[30,15,45];
     
   return (
     <div className="featured">
         <div className="top">
-            <h2 className="heading">Progress</h2>
+            <h4 className="heading">Progress</h4>
         </div>
         <div className="bottom">
             <div className="featuredChart">

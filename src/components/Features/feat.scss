@@ -7,78 +7,48 @@
     box-shadow: 0px 5px 6px 5px rgba(135,132,132,0.24);
     -webkit-box-shadow: 0px 5px 6px 5px rgba(135,132,132,0.24);
     -moz-box-shadow: 0px 5px 6px 5px rgba(135,132,132,0.24);
-    height: 150px;
-    background-color:#f8ffe2;
-    
-    
-    
-    
-    
+    height: 160px;
+    //background-color:lightcoral;
 
-    
-   
     .left{
-        display:inline;    
-        // align-items: center;  
-        // justify-content: flex-start;      
-        margin-left: 6.5rem;
-        
-        
+        background-color:#ceff1c9a;
+        display:block;
+        width:100%;
+        border-radius:15px;
         .iconic{
-            
-            display:flex;
-            justify-content: center;
-            
+            //background-color:lightblue;
+            margin-left:16.5rem;
+            padding-top: 50px;            
         }
         .icon{
-            display:flex;   
-            align-items: center; 
-            font-size:35px;
+            font-size:3rem;
+            color:rgb(13, 68, 113);
             
-            margin-left:-1.2rem;
-            // font-size: 30px;    
-            // padding-top: 10px;  
-            color:rgb(34, 69, 134);  
         }
         .icon1{
-            display:flex;
-            align-items: center; 
-            font-size:35px; 
-            margin-left:-1.2rem;
-            // margin-left:55px;
-            // font-size: 30px;    
-            // padding-top: 10px; 
-            color:rgb(11, 112, 28)
+            font-size:3rem;
+            color:rgb(11, 112, 55);
         }
         .icon2{
-            display:flex;
-            align-items: center; 
-            font-size:35px; 
-            margin-left:-1.2rem;
-            // margin-left:45px;
-            // font-size: 30px;    
-            // padding-top: 10px;  
-            color:rgb(219, 49, 11);  
-        }
-        .proleft{
-            // background-color:lightcoral;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            padding-top:1.8rem;
-            margin-left:-18px;
-            font-size: 25px;
-            
+            font-size:3rem;
+            color:rgb(206, 16, 70);
         }
         .heading{
-            display:flex;
-            align-items: center;
-            justify-content: space-around;
-            margin-top:2rem;
-            font-size: 20px;
-            font-weight: 600;
-            color:#0b2e59;
+            //background-color:lightpink;
+            display:block;
+            margin-top:-65px;
+            margin-left:15px;
+            font-size:20px;
+            font-weight:500;
+            color:rgb(85, 81, 81);
         }
+        .proleft{
+            display:block;
+            margin-left:15px;
+            margin-top:10px;
+            font-size:30px;
+            font-weight:600;
+        }
+        
     }
-
 }

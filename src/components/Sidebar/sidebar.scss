@@ -1,16 +1,19 @@
 .sidebar{
     flex: 1;    
-    min-height: 105vh;
+    min-height: 110vh;
+    margin: 0 auto;
+    padding: 0;
     border-right: 0.6px solid lightgray;
-    background-color: #092b5a;
+    background-color: #111827;
     box-shadow: 0px 5px 5px 2px rgba(135,132,132,0.38);
     -webkit-box-shadow: 0px 5px 5px 2px rgba(135,132,132,0.38);
     -moz-box-shadow: 0px 5px 5px 2px rgba(135,132,132,0.38);
     .top{
-        height: 100px;
+        height: 70px;
         display: flex;
         align-items: center;
         justify-content: center;
+        // background-color:lightcoral;
     }
 
     .logo{
@@ -19,100 +22,64 @@
         color: #f38630; 
     }
     
+    
     .center{
-        margin:0;
-        padding:0;
-        
-        //margin-left:40px;
-        
-
+        //background-color:green;
+        width: 90%;
+        height: 92vh;
+        overflow-y: hidden;
         
         
-        ul{
-            list-style:none;            
-            padding:0;             
-            .align{
-                margin-left:30px;
-                margin-top:25px;
-            }
-
+        ul{            
+            //background-color:lightcoral;
+            list-style:none; 
             li{
-                display:flex;           
-                padding:5px;
+                margin-top:15px;
                 cursor:pointer;
-                font-size:15px;
+                font-size:16px;
                 font-weight: 300;
-                text-align: center;                  
-                color:#fafdea;  
-                
-                
+                color:#fafdea;                
+            }
+            .align{
+                margin-left:-20px;
+                padding-top:12px;
+                //
+            }
+            .header{
+                font-size: 17px;                
                 &:hover{
-                    background-color:#f38630;
-                    width: 82%;
+                    background-color:#585858;
+                    padding-left: 10px;
+                    padding-right: 10px;
                     border-radius: 40px 5px 5px 40px;
                     -moz-border-radius: 40px 5px 5px 40px;
                     -webkit-border-radius: 40px 5px 5px 40px;
-                    border: 0px dotted #000000;
+                    margin-right: 25px;
                 }
-                
-                
-                .icon{
-                    font-size: 21px;   
-                    margin-right: 5px;                 
-                    color:#f38630;
-                }
-                
-                .sub{
-                    margin-top:20px;
-                    margin-left: -45px;
-                }
-                .sub2{
-                    margin-top:20px;
-                    margin-left:-25px;
-                }
-                .sub7{
-                    margin-left:-25px;
-                    margin-top:2px;
-                }
-                .sub1{
-                    margin-left: -45px;
-                    margin-top:2px;
-                }
-                .sub3{
-                    margin-top:20px;
-                    margin-left:-60px;
-                }
-                .sub4{
-                    margin-left:-60px;
-                    margin-top:2px;
-                }
-                .sub5{
-                    margin-top:20px;
-                    margin-left:-30px;
-                }
-                .sub6{
-                    margin-top:2px;
-                    margin-left:-30px;
-                }      
-                .icon1{
-                    font-size:13px;
-                    color:rgb(144, 144, 144);
-                }     
-
-                .collapse{
-                    display:none;
-                }
-
             }
             
-            .out{                
-                margin-top:270px;
-                &:hover{
-                    background-color:none;
-                }
+
+            .collapse{
+                display: none;
             }
+            .icon{     
+                font-size: 18px;   
+                margin-right: 5px;                 
+                color:#f38630;
+            }
+            .icon1{
+                font-size:13px;
+                color:rgb(144, 144, 144);
+                
+            } 
+            .logout{                
+                margin-top:22rem;
+                
+            }
+            
         }
     }
+    
 
 
 }

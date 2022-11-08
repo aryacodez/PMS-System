@@ -27,6 +27,7 @@ const Forms = () => {
     const [msg,setMsg]=useState("");    
     const [isPending,setisPending]=useState(false);
     const [count,setCount]=useState(0);
+    const [status,setStatus]=useState("");
     let diffdays=(date1,date2)=>{
         const diff = Math.abs(date2-date1);
         return diff/(1000*60*60*24);
@@ -40,9 +41,9 @@ const Forms = () => {
         const date2 = new Date(end);
         diffdates=diffdays(date1, date2);
         
+        setStatus(""); 
 
-
-        const pms={id,name,desc,start,end,diffdates}; 
+        const pms={id,name,desc,start,end,diffdates,status}; 
         setisPending(true);
         fetch('http://localhost:4000/users',{
             method:'POST',
@@ -53,7 +54,8 @@ const Forms = () => {
             setName("");
             setDesc("");
             setStart("");
-            setEnd("");            
+            setEnd("");      
+            setStatus("");      
             setMsg("Data Added Successfully!!!");
             console.log('Data Added Sucessfully');
             setisPending(false);

@@ -71,7 +71,7 @@ const ViewTsk = () => {
                 return (
                     <div className='actionCell'>
                         <div className='deleteButton'>
-                            <button type='submit'>Download</button>
+                            <button type='submit' disabled>Download</button>
                         </div>
                     </div>
                 )
@@ -105,10 +105,10 @@ const ViewTsk = () => {
 
     return (
         <div style={{ height: 600, width: '98%' }} className='tableformat'>
-            <h3>Tasks Details</h3>
+            <h3 style={{color:'#494e56'}}>Tasks Details</h3>
             <DataGrid
                 rows={table}
-                columns={columns.concat(getFile,action)} 
+                columns={columns.concat(action)} 
                 pageSize={15}
                 components={{
                     Toolbar: GridToolbar,

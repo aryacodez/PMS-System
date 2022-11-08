@@ -70,15 +70,16 @@ const Forms1 = () => {
     return (
         <div className='main'>
             <form ref={form} onSubmit={handleSubmit} className='proforms'>
-                <h1>Add New Member</h1>
-                <label>Member ID</label><br></br>
+                <h1 style={{color:'#494e56'}}>Add New Member</h1>
+                <p>Mandatory(<span>*</span>)</p>
+                <label>Member ID<span> *</span></label><br></br>
                 <input
                     required
                     type='text'
                     value={id}
                     onChange={(e)=>setId(e.target.value)}
                 /><br></br>
-                <label>Member Name</label><br></br>
+                <label>Member Name<span> *</span></label><br></br>
                 <input
                     required
                     type='text'
@@ -88,7 +89,6 @@ const Forms1 = () => {
                 /><br></br>
                 <label>Designation</label><br></br>
                 <input
-                    required
                     type='text'
                     value={desg}
                     onChange={(e)=>setDesg(e.target.value)}
@@ -100,7 +100,7 @@ const Forms1 = () => {
                         <option value={project.name}>{project.name}</option>
                     )}
                 </select><br></br>
-                <label>Mobile Number</label><br></br>
+                <label>Mobile Number<span> *</span></label><br></br>
                 <input
                     required
                     type='text'
@@ -108,7 +108,7 @@ const Forms1 = () => {
                     maxLength='10'
                     onChange={(e)=>setNum(e.target.value)}
                 /><br></br>
-                <label>Email ID</label><br></br>
+                <label>Email ID<span> *</span></label><br></br>
                 <input
                     required
                     type='email'

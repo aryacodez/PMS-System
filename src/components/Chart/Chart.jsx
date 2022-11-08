@@ -1,7 +1,7 @@
 import './chart.scss'
 import React, { useState, useEffect } from 'react'
 import { DataGrid } from '@mui/x-data-grid'
-
+import Box from '@mui/material/Box';
 
 import { LinearProgress } from '@mui/material';
 
@@ -19,17 +19,21 @@ const Chart = () => {
           method:'GET'
       })
       .then((users)=>users.json())
-      .then((users)=>setTable(users))
+      .then((users)=>setTable(users))      
   },[])
   console.log(table);
+
 
   const [pageSize, setPageSize] = React.useState(25);
 
 
   return (
-    <div style={{ height: 400, width: '60%' }} className='chart'>
-        <h3>Projects Overview</h3>
+    <Box sx={{ height: 400, width: '80%' }} className='chart'>
+        <h4>Tasks</h4>
         <DataGrid 
+            sx={{
+              border:0,
+            }}
             pageSize={pageSize}
             rowHeight={45}
             rows={table}
@@ -37,7 +41,7 @@ const Chart = () => {
             onPageSizeChange={(newPage) => setPageSize(newPage)}
             pagination
         />
-    </div>
+    </Box>
     
   )
 }

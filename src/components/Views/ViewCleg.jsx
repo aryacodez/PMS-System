@@ -61,7 +61,7 @@ const ViewCleg = () => {
     return (
 
         <div style={{ height: 600, width: '98%' }} className='tableformat'>
-            <h3>Member Details</h3>
+            <h3 style={{color:'#494e56'}}>Member Details</h3>
             <DataGrid
                 rows={table}
                 columns={columns.concat(action)} 

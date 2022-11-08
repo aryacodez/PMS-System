@@ -50,6 +50,7 @@ const Forms2 = () => {
                 const y = (url)
                 console.log(y)
             })
+            const x =getDownloadURL(ref(storage,  `images/${imageUpload.name}`))
         })
         
     }
@@ -116,7 +117,7 @@ const Forms2 = () => {
     return (
         <div className='main'>
             <form onSubmit={handleSubmit} className='proforms'>
-                <h1>Add New Task</h1>
+                <h1 style={{color:'#494e56'}}>Add New Task</h1>
                 <p>Mandatory(<span>*</span>)</p>
                 <label>Task ID<span> *</span></label><br></br>
                 <input
@@ -133,7 +134,7 @@ const Forms2 = () => {
                     onChange={(e) => setName(e.target.value)}
                 /><br></br>
                 <label>Select Project<span> *</span></label><br></br>
-                <select onChange={handleSelect} className='select'>                     
+                <select onChange={handleSelect} className='select'>                                         
                     <option value=''></option>                 
                     {tab.map((project) =>                        
                         <option value={project.name}>{project.name}</option>                        

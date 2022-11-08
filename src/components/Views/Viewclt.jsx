@@ -56,8 +56,8 @@ const Viewclt = () => {
 
     return (
         <div style={{ height: 600, width: '98%' }} className='tableformat'>
-            <h3>Client Details</h3>
-            <DataGrid
+            <h3 style={{color:'#494e56'}}>Client Details</h3>
+            <DataGrid                
                 rows={table}
                 columns={columns.concat(action)} 
                 pageSize={15}
