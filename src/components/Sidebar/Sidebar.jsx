@@ -19,18 +19,19 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">PMS System</span>
+        <Link to="/home" style={{ textDecoration: "none" }}>
+        <img src="https://i.ibb.co/rv4yMyB/prodesk-logo.png" alt="prodesk-logo" border="0" width="35" height="35"/>
+          <span className="logo">ProDesk</span>
         </Link>        
       </div>
       <hr style={{
         height:'0.5px',
-        border:'none',
+        border:'0',
         background: 'lightgray'
       }}/>
       <div className="center">
         <ul>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/home" style={{ textDecoration: "none" }}>
             <li className='align'>
               <DashboardCustomizeRoundedIcon className='icon' />
               <span className='header'>Dashboard</span>
@@ -107,7 +108,7 @@ const Sidebar = () => {
             </li>
           </Link>
           <div className='out'>
-            <Link to="/landing" style={{ textDecoration: "none" }}>
+            <Link to="/" style={{ textDecoration: "none" }}>
               <li className='logout'>
                 <LogoutRoundedIcon className='icon' />
                 <span className='header'>Logout</span>

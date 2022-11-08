@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 
 const Forms1 = () => {
@@ -11,6 +11,13 @@ const Forms1 = () => {
     const [msg, setMsg] = useState("");
     const [isPending, setisPending] = useState(false);
 
+
+    const storedValue= Number(localStorage.getItem('count2'));
+    const [count2,setCount2]=useState(Number.isInteger(storedValue)?storedValue:1);
+    useEffect(()=>{
+        localStorage.setItem('count2',String(count2));
+    },[count2]);
+
     let handleSubmit = (e) => {
         e.preventDefault();
         const pms = { id, cname, comp, num, email };
@@ -19,6 +26,16 @@ const Forms1 = () => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(pms)
+        }).then(()=>{            
+            setCount2(c=>c+1);
+            const c= {count2};
+            fetch('http://localhost:4000/clientCount/1',{
+                method:'PATCH',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(c)     
+            }).then(()=>{
+                console.log("Incremented Successfully");
+            })
         }).then(()=>{
             setId("");
             setCname("");

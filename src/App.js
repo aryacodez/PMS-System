@@ -17,8 +17,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route exact path='/landing' element={<Landing />} />
-        <Route exact path='/' element={<Home />} />
+        <Route exact path='/' element={<Landing />} />
+        <Route exact path='/home' element={<Home />} />
         <Route exact path='/project' element={<AddProjects />} />
         <Route exact path='/project/viewProject' element={<ViewProjects />} />
         <Route exact path='/members' element={<Colleague />} />

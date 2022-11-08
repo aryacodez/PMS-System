@@ -1,17 +1,102 @@
 {
   "users": [
     {
-      "id": "10236",
+      "id": "1021",
       "name": "MERN",
       "desc": "",
-      "start": "2022-11-08",
-      "end": "2022-11-30",
-      "diffdates": 22,
+      "start": "2022-11-09",
+      "end": "2022-11-27",
+      "diffdates": 18,
+      "status": "inprogress"
+    },
+    {
+      "id": "1023",
+      "name": "Android App",
+      "desc": "",
+      "start": "2022-11-15",
+      "end": "2022-11-20",
+      "diffdates": 5,
       "status": "completed"
+    },
+    {
+      "id": "110001",
+      "name": "Java App",
+      "desc": "",
+      "start": "2022-11-09",
+      "end": "2022-11-27",
+      "diffdates": 18,
+      "status": ""
+    },
+    {
+      "id": "10368125",
+      "name": "IOS app",
+      "desc": "",
+      "start": "2022-11-15",
+      "end": "2022-11-27",
+      "diffdates": 12,
+      "status": ""
     }
   ],
-  "colleague": [],
-  "client": [],
-  "tasks": [],
-  "statscount": []
+  "colleague": [
+    {
+      "id": "1012",
+      "mname": "XYZ",
+      "desg": "",
+      "projname": "",
+      "num": "1234567890",
+      "email": "suryasarkar18@gmail.com"
+    }
+  ],
+  "client": [
+    {
+      "id": "1001",
+      "cname": "Sample",
+      "comp": "XYZ",
+      "num": "",
+      "email": "suryasarkar18@gmail.com"
+    },
+    {
+      "id": "10128",
+      "cname": "XYZ",
+      "comp": "",
+      "num": "",
+      "email": "suryasarkar18@gmail.com"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "name": "Add Navbar",
+      "desc": "",
+      "start": "2022-11-09",
+      "end": "2022-11-11",
+      "proname": "MERN"
+    },
+    {
+      "id": "4155",
+      "name": "Add Task Menu",
+      "desc": "",
+      "start": "2022-11-22",
+      "end": "2022-11-27",
+      "proname": "Java App"
+    }
+  ],
+  "count": [
+    {
+      "id": 1,
+      "count": 4
+    }
+  ],
+  "taskCount": [
+    {
+      "id": 1,
+      "count1": 2
+    }
+  ],
+  "clientCount": [
+    {
+      "id": 1,
+      "count2": 2
+    }
+  ]
 }

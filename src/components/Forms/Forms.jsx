@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { useEffect } from 'react';
 import './forms.scss'
 const Forms = () => {
     
@@ -26,8 +27,16 @@ const Forms = () => {
     const [end,setEnd]=useState("");
     const [msg,setMsg]=useState("");    
     const [isPending,setisPending]=useState(false);
-    const [count,setCount]=useState(0);
+    //const [count,setCount]=useState(1);
     const [status,setStatus]=useState("");
+
+
+    const storedValue= Number(localStorage.getItem('count'));
+    const [count,setCount]=useState(Number.isInteger(storedValue)?storedValue:1);
+    useEffect(()=>{
+        localStorage.setItem('count',String(count));
+    },[count]);
+
     let diffdays=(date1,date2)=>{
         const diff = Math.abs(date2-date1);
         return diff/(1000*60*60*24);
@@ -49,6 +58,16 @@ const Forms = () => {
             method:'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(pms)     
+        }).then(()=>{            
+            setCount(c=>c+1);
+            const c= {count};
+            fetch('http://localhost:4000/count/1',{
+                method:'PATCH',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(c)     
+            }).then(()=>{
+                console.log("Incremented Successfully");
+            })
         }).then(()=>{
             setId("");
             setName("");
@@ -65,16 +84,7 @@ const Forms = () => {
             },1500)
         });
 
-
-        setCount(c=>c+1);
-        const c= {count};
-        fetch('http://localhost:4000/count/1',{
-            method:'PUT',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(c)     
-        }).then(()=>{
-            console.log("Incremented Successfully");
-        })
+        
 
     };
 

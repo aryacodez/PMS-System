@@ -7,7 +7,7 @@ import { LinearProgress } from '@mui/material';
 
 const columns = [
   { field: 'name', headerName: 'Project Title', width: 450 },
-  { field: 'diffdates', headerName: 'Days Left', width: 100 },   
+  { field: 'diffdates', headerName: 'Duration (Days)', width: 140 },   
 ];
 
 

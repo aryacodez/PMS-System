@@ -7,29 +7,25 @@ import { useNavigate } from 'react-router-dom'
 
 const Landing = () => {
 
-    
-
     const navigate = useNavigate();
 
     const navigateToHome = () => {
-        navigate('/');
+        navigate('/home');
     }
 
     return (
         <div className='project'>
-            
-            <div className='listContainer'>
+            <div className='listContainers'>
                 <Navbar />
-                
-                <div className='center'>
-
-                    <h1>PMS-SYSTEM</h1>
-
-                    <div className='downcenter'>
-
-                        <button class="button-63" onClick={navigateToHome}>Button 63</button>
-                    </div>    
+                <div className='centers'>
+                    <div className="button-wrapper">
+                        <h1 className='name'>ProDesk</h1>
+                        <div className='button-align'>
+                            <button type="button" className="button-63" onClick={navigateToHome}> Get Started </button>
+                        </div>
+                    </div>
                 </div>
+                 
             </div>       
         </div>
     )

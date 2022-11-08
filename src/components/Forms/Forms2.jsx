@@ -55,26 +55,12 @@ const Forms2 = () => {
         
     }
 
-    // const uploadImage = async() => {
-    //     if (imageUpload == null) {
-    //         return;
-    //     }
-    //     setUrl('LINK')
-
-    //     const imageRef = storage.ref(`image/${imageUpload.name}`).put(imageUpload)
-    //         .on('state_changed', alert('success'), alert);
-        
-    //     imageRef();
-        
-
-
-    //     // uploadBytes(imageRef, imageUpload).then(() => {
-    //     //     console.log('image Uploaded')
-    //     // })
-        
-    // }
-
-    // var diff;
+    
+    const storedValue= Number(localStorage.getItem('count1'));
+    const [count1,setCount1]=useState(Number.isInteger(storedValue)?storedValue:1);
+    useEffect(()=>{
+        localStorage.setItem('count1',String(count1));
+    },[count1]);
    
     
    
@@ -93,6 +79,16 @@ const Forms2 = () => {
             method:'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(task)     
+        }).then(()=>{            
+            setCount1(c=>c+1);
+            const c= {count1};
+            fetch('http://localhost:4000/taskCount/1',{
+                method:'PATCH',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(c)     
+            }).then(()=>{
+                console.log("Incremented Successfully");
+            })
         }).then(()=>{
             setId("");
             setName("");

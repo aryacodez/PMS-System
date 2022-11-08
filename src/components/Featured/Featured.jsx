@@ -1,20 +1,38 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './featured.scss'
 import Chart from "react-apexcharts";
-import { useEffect } from 'react';
+
 
 
 const Featured = () => {
-    // const [chart,setChart]=useState({});
-    // const charts=()=>{
-    //     let count=[];
-    // }
+    
+    const [table,setTable]=useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:4000/count/1',{
+            method:'GET'
+        }).then((users)=>users.json())
+        .then((users)=>setTable(users))
+    },[]);
+    const proCount= (table.count);
+
+    const [table1,setTable1]=useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:4000/taskCount/1',{
+            method:'GET'
+        }).then((users)=>users.json())
+        .then((users)=>setTable1(users))
+    },[]);
+    const taskCount=table1.count1;
+
+
+
+
     const options={
-        series:[30,15,45],
-        labels:['Project Completed','Task Completed','Issues Pending'],
-        colors:['#3F51B5','#2AECAB','#1890FF']
+        series:[proCount,taskCount],
+        labels:['Total Project','Issues Pending'],
+        colors:['#3F51B5','#1890FF']
     };
-    const series=[30,15,45];
+    const series=[proCount,taskCount];
     
   return (
     <div className="featured">

@@ -12,26 +12,34 @@
         height: 70px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        // background-color:lightcoral;
+        justify-content: center;        
+        position: relative;
+        
+        .logo{
+            font-size: 30px;
+            font-weight: 600;
+            color: #2AECAB; 
+            // background-color: blue;          
+            position: relative;
+            top:-8px;
+            left:5px;
+        }
+        
+        
     }
-
-    .logo{
-        font-size: 26px;
-        font-weight: 600;
-        color: #f38630; 
-    }
+    
     
     
     .center{
-        //background-color:green;
+        // background-color:green;
         width: 90%;
-        height: 92vh;
+        height: 95vh;
         overflow-y: hidden;
+        // margin-top:50px;
         
         
-        ul{            
-            //background-color:lightcoral;
+        ul{       
+            // background-color:lightcoral;
             list-style:none; 
             li{
                 margin-top:15px;
@@ -46,7 +54,9 @@
                 //
             }
             .header{
-                font-size: 17px;                
+                position:relative;
+                top:-2px;
+                font-size: 20px;                
                 &:hover{
                     background-color:#585858;
                     padding-left: 10px;
@@ -65,16 +75,18 @@
             .icon{     
                 font-size: 18px;   
                 margin-right: 5px;                 
-                color:#f38630;
+                color:#2AECAB;
             }
             .icon1{
                 font-size:13px;
                 color:rgb(144, 144, 144);
                 
             } 
-            .logout{                
-                margin-top:22rem;
-                
+            .out{                
+                margin-top:15rem;
+                // background-color: lightcoral;
+                margin-left:-20px;
+                position:relative;
             }
             
         }
