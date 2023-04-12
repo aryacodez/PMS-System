@@ -42,3 +42,43 @@ exports.getProject = async (req, res) => {
     console.log(error);
   }
 };
+
+exports.removeProject = async(req,res) => {
+  try{
+    const project = await Project.findByIdAndDelete({_id:req.params.id});
+    if(!project){
+      return res.status(404).json({
+        success:false,
+        msg:"Project Not Found"
+      })
+    }
+    return res.status(200).json({
+      success:true,
+      msg:"Project Removed Successfully",
+      project
+    });
+  }
+  catch(err){
+    console.log(err)
+    res.status(500).json({
+      success: false,
+      message: 'An error occurred while deleting the project'
+    });
+  } 
+}
+
+exports.getRelatedTasks = async(req,res)=>{
+  try{
+    const project = await Project.findById({_id:req.params.id}).populate('tasks')
+    if(!project){
+      return res.status(404).json({
+        success: false,
+        msg:"No project related tasks present"
+      })
+    }
+    return res.status(200).json({
+      success: true,
+      project
+    })
+  }catch(err){console.log(err)}
+}

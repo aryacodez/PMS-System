@@ -7,8 +7,7 @@ import ViewColleague from './pages/viewColleagues/viewColleague.jsx'
 import Client from './pages/client/Client.jsx'
 import ViewClient from './pages/viewClient/viewClient.jsx'
 import AddTask from './pages/addTask/AddTask.jsx'
-import ViewTask from './pages/viewTask/ViewTask'
-
+import ViewTask from './pages/viewTask/viewTask.jsx'
 import Profile from './pages/Profile/Profile.jsx'
 
 import { Routes, Route } from 'react-router-dom';
