@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const clientSchema = mongoose.Schema({
   clientID: {
-    type: Number,
+    type: String,
   },
   clientName: {
     type: String,

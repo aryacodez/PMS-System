@@ -82,3 +82,25 @@ exports.getRelatedTasks = async(req,res)=>{
     })
   }catch(err){console.log(err)}
 }
+
+exports.getTasksSizeofEachProject = async(req,res)=>{
+  try{
+    const project = await Project.find({user:req.user._id})
+    if(project.length===0){
+      return res.status(404).json({
+        success: false,
+        msg:"No Project available"
+      })
+    }
+    const projectsizes = project.map((p,i)=>{
+      return {
+        id: p._id,
+        name:p.projectName,
+        taskSize:p.tasks.length
+      }
+    })
+    return res.status(200).json({
+      projectsizes
+    })
+  }catch(e){console.log(e)}
+}

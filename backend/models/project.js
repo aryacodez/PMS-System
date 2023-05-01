@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const projectSchema = mongoose.Schema({
   projectID: {
-    type: Number,
+    type: String,
   },
   projectName: {
     type: String,
@@ -23,11 +23,19 @@ const projectSchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
+    //name:[]
   },
-  tasks:[{
-    type: mongoose.Schema.ObjectId,
-    ref:'Task'
-  }]
+  tasks: [
+    {
+      task: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Task'
+      },
+      name: {
+        type: String
+      }
+    }
+  ]
 });
 
 module.exports = mongoose.model("Project", projectSchema);

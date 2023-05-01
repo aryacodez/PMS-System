@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const {addTask,getTask,removeTask} = require('../controllers/taskController')
+const {addTask,getTask,removeTask,updateStatus,getStatusCount} = require('../controllers/taskController')
 const { isLoggedIn } = require("../middlewares/auth");
 
-router.route('/addTask').post(isLoggedIn,addTask)
-router.route('/getTask').get(isLoggedIn,getTask)
-router.route('/removetask/:id').get(isLoggedIn,removeTask)
+router.route('/addtask').post(isLoggedIn,addTask)
+router.route('/gettask').get(isLoggedIn,getTask)
+router.route('/taskstatuscount').get(isLoggedIn,getStatusCount)
+router.route('/removetask/:id').delete(isLoggedIn,removeTask)
+router.route('/updatestatus/:id').patch(isLoggedIn,updateStatus)
 
 module.exports = router;

@@ -5,27 +5,37 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const userSchema = mongoose.Schema({
+  uniqueid:{
+    type:String
+  },
+  avatar: {
+    id:String,
+    url:String
+  },
   name: {
-    type: String,
-    // required: [true, "Name mandatorily required"],
-    // maxlength: [50, "Name exceed 50 characters"],
-    // minlength: [3, "Name must be minimum of 3 characters"],
+    type: String,   
   },
   email: {
     type: String,
-    // required: [true, "Email mandatorily required"],
-    // unique: [true, "Email already exists"],
-    // validate: [validator.isEmail, "Provide a correct email address"],
+    unique:[true,"Email Exists"]
   },
   password: {
-    type: String,
-    // required: [true, "Password mandatorily required"],
-    // minlength: [4, "Password must be minimum 4 characters"],
-    select: false,
+    type: String,    
+    select: false
   },
-  //   mobile: {
-  //     type: Number,
-  //   },
+  mobilenumber: {
+      type: Number,
+  },
+  role: {
+    type:String,
+    default:'user'    
+  },
+  request:{
+    type:String,
+    default:'No'
+  },
+  // forgotPasswordToken:String,
+  // forgotPasswordExpiry:Date,
   createdAt: {
     type: Date,
     default: Date.now,

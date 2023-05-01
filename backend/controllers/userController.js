@@ -1,5 +1,13 @@
 const User = require("../models/user");
 const cookieToken = require("../utils/cookieToken");
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
+  secure: true
+})
 
 exports.register = async (req, res) => {
   try {
@@ -18,8 +26,16 @@ exports.register = async (req, res) => {
         msg: "Email already exists",
       });
     }
-
+    let files = req.files.photo
+    const result = await cloudinary.uploader.upload(files.tempFilePath,{
+      folder:"User Photos",
+      width: 720
+    })
     const registerUser = await User.create({
+      avatar:{
+        id: result.public_id,
+        url: result.secure_url
+      }, 
       name,
       email,
       password,

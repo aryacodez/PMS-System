@@ -21,7 +21,7 @@ const Forms2 = () => {
     }, [])
 
     const tab=table;
-    
+    console.log(tab);
     const [id,setId]=useState("");
     const [name,setName]=useState("");
     const [desc,setDesc]=useState("");
