@@ -30,6 +30,15 @@ const userSchema = mongoose.Schema({
   mobilenumber: {
       type: Number,
   },
+  organization: {
+    type:String
+  },
+  address: {
+    type:String
+  },
+  gender: {
+    type:String
+  },
   role: {
     type:String,
     default:'user',

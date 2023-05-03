@@ -92,6 +92,29 @@ const Sidebar = () => {
               </li>
             </ul>
           </li>
+          <li onClick={() => setDropdownActive3(!isDropdownActive3)} className='hov'>
+            <a className='text-decoration-none px-5 py-2 d-block'>
+              <i className="bi bi-file-person-fill"></i>
+              <span className='px-2'>Issues</span>
+              <i className="bi bi-caret-down-fill"></i>
+            </a>
+            <ul className={isDropdownActive3 ? "list-unstyled collapse" : "list-unstyled px-5"}>
+              <li>
+                <Link to='/addissues'>
+                  <a className='text-decoration-none px-5 py-2 d-block'>
+                    Add Issues
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link to='/viewissues'>
+                  <a className='text-decoration-none px-5 py-2 d-block'>
+                    View Issues
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          </li>
           <li onClick={() => setDropdownActive2(!isDropdownActive2)} className='hov'>
             <a className='text-decoration-none px-5 py-2 d-block'>
               <i className="bi bi-person-lines-fill"></i>

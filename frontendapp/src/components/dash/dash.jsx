@@ -9,6 +9,7 @@ const Dash = () => {
     const [client, setClient] = useState("");
     const [protaskcount, setProtaskcount] = useState("");
     useEffect(() => {
+        //API -- 1
         fetch('/api/v1/getcounter', {
             method: "GET"
         }).then(res => res.json())
@@ -25,8 +26,10 @@ const Dash = () => {
                 setProtaskcount(res.projectsizes)
             })
     }, [])
-    //console.log(protaskcount[0])
-    // console.log(client)
+    console.log(protaskcount[0])
+    console.log(client)
+
+    
     //console.log(Object.keys(protaskcount).map((key) => protaskcount[key].taskSize))
     const option = {
         series: [5, 2, 7],
@@ -232,19 +235,7 @@ const Dash = () => {
                                     width='160%'
                                     height='auto'
                                     className='ms-xxl-5'
-                                />
-                                {/* {protaskcount.map((task, index) => (
-                                    <div key={task.id}>
-                                        <p>Name: {task.name}</p>
-                                        <p>Task Size: {task.taskSize}</p>
-                                    </div>
-                                ))} */}
-                                {/* {Object.keys(protaskcount).map((key) => (
-                                    <div key={key}>
-                                        <p>Name: {protaskcount[key].name}</p>
-                                        <p>Task Size: {protaskcount[key].taskSize}</p>
-                                    </div>
-                                ))} */}
+                                />                                
                             </div>
                         </div>
                     </div>

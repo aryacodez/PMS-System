@@ -93,10 +93,10 @@ exports.deleteClients = (async(req,res)=>{
 exports.getTotal = (async(req,res)=>{
     try{
         const get = await Count.find({user: req.user._id})
-        if(get.length===0){
+        if(!get){
             return res.status(401).json({
                 success:false,
-                msg:"0"
+                get
             })
         }
         return res.status(200).json({

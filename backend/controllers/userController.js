@@ -116,3 +116,29 @@ exports.getLoggedInUserDetails = async (req, res) => {
     console.log(error);
   }
 };
+
+exports.updateProfile= async(req,res)=>{
+  try{
+    const user = await User.findById(req.user.id)
+    if(!user){
+      return res.status(400).json({
+        msg:"No Such User Exists"
+      })
+    }
+    const {name,password,mobilenumber,organization,address,gender} =req.body
+    if(name) user.name=name
+    if(password) user.password=password
+    if(mobilenumber) user.mobilenumber=mobilenumber
+    if(organization) user.organization=organization
+    if(address) user.address=address
+    if(gender) user.gender=gender
+    await user.save()
+    return res.status(200).json({
+      success:true,
+      msg:"User Updated Successfully"
+    })
+  }catch(e){
+    console.log(e)
+  }
+}
+
