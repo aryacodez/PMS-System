@@ -1,6 +1,6 @@
 const User = require("../models/user");
 const cookieToken = require("../utils/cookieToken");
-const cloudinary = require('cloudinary').v2;
+const cloudinary = require('cloudinary');
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -11,9 +11,15 @@ cloudinary.config({
 
 exports.register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    if(!req.files){
+      return res.status(400).json({
+        success:false,
+        msg:"Image need to be uploaded"
+      })
+    }
+    const {uniqueid, name, email, password, mobilenumber } = req.body;
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !uniqueid || !mobilenumber) {
       return res.status(400).json({
         msg: "Credintials Missing",
       });
@@ -26,12 +32,17 @@ exports.register = async (req, res) => {
         msg: "Email already exists",
       });
     }
-    let files = req.files.photo
-    const result = await cloudinary.uploader.upload(files.tempFilePath,{
-      folder:"User Photos",
-      width: 720
+    
+    let file = req.files.avatar
+    console.log(file)
+    const result = await cloudinary.v2.uploader.upload(file.tempFilePath,{
+      folder:"users-photo",
+      width:150,
+      crop:"scale"
     })
+    
     const registerUser = await User.create({
+      uniqueid,
       avatar:{
         id: result.public_id,
         url: result.secure_url
@@ -39,6 +50,7 @@ exports.register = async (req, res) => {
       name,
       email,
       password,
+      mobilenumber
     });
 
     cookieToken(registerUser, res);

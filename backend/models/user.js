@@ -9,8 +9,12 @@ const userSchema = mongoose.Schema({
     type:String
   },
   avatar: {
-    id:String,
-    url:String
+    id:{
+      type:String
+    },
+    url:{
+      type:String
+    },
   },
   name: {
     type: String,   
@@ -28,7 +32,8 @@ const userSchema = mongoose.Schema({
   },
   role: {
     type:String,
-    default:'user'    
+    default:'user',
+    enum:['user','admin']
   },
   request:{
     type:String,

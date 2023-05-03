@@ -13,6 +13,8 @@ import ViewProjects from './pages/viewProjects/viewprojects'
 import ViewClients from './pages/viewClients/viewclients'
 import ViewTasks from './pages/viewTasks/viewtasks'
 
+import Profile from './pages/Profile/profile'
+
 import { Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
         <Route exact path='/viewprojects' element={<ViewProjects/>} />
         <Route exact path='/viewclients' element={<ViewClients/>} />
         <Route exact path='/viewtasks' element={<ViewTasks/>} />
+        <Route exact path='/profile' element={<Profile/>} />
       </Routes>
     </>
   );

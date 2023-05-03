@@ -140,10 +140,12 @@ const Sidebar = () => {
         <hr className='hcolor mx-2' />
         <ul className='list-unstyled px-2'>
           <li className='hov'>
-            <a className='text-decoration-none px-5 py-2 d-block'>
-              <i className="bi bi-person-vcard-fill"></i>
-              <span className='px-2'>Account</span>
-            </a>
+            <Link to='/profile'>
+              <a className='text-decoration-none px-5 py-2 d-block'>
+                <i className="bi bi-person-vcard-fill"></i>
+                <span className='px-2'>Account</span>
+              </a>
+            </Link>
           </li>
           <li className='hov'>
             <a className='text-decoration-none px-5 py-2 mt-xxl-5 justify-content-end d-block' onClick={handleLogout}>
