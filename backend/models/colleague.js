@@ -16,10 +16,13 @@ const colleagueSchema = mongoose.Schema({
   emailID: {
     type: String,
   },
-  //project: {
-  //     type: mongoose.Schema.ObjectId,
-  //     ref: "Project",
-  //   },
+  project:{
+    type: String,   
+    //required:true 
+  },
+  projectId:{
+    type:String
+  },
   createdAt: {
     type: Date,
     default: Date.now,

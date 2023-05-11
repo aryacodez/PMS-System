@@ -104,3 +104,13 @@ exports.getTasksSizeofEachProject = async(req,res)=>{
     })
   }catch(e){console.log(e)}
 }
+
+exports.projectCount = async(req,res)=>{
+  try{
+    const countProject = await Project.find({user:req.user._id})
+    const lengthProject = countProject.length || 0
+    res.status(200).json({success:true,lengthProject})
+  }catch(e){
+    console.log(e)
+  }
+}

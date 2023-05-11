@@ -1,56 +1,122 @@
 const Task = require('../models/task')
 const Project = require('../models/project');
+const cloudinary = require("cloudinary");
+const fs = require("fs");
 
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
+  secure: true,
+});
 exports.addTask = async(req,res)=>{
-    try{
+    // try{
 
-        const {taskID,taskName,sDate,eDate,project} = req.body;
+    //     const {taskID,taskName,sDate,eDate,project} = req.body;
 
-        const projectid = await Project.findOne({projectName: project}).select('projectID -_id')
-        const _idproject = await Project.findOne({projectName: project}).select('_id')
-        //return res.status(200).json({projectid})
-        if(!(_idproject && projectid)){
-            return res.status(400).json({
-                success:false,
-                msg:"Project Non-existence"
-            })
+    //     const projectid = await Project.findOne({projectName: project}).select('projectID -_id')
+    //     const _idproject = await Project.findOne({projectName: project}).select('_id')
+    //     //return res.status(200).json({_idproject})
+    //     if(!(_idproject && projectid)){
+    //         return res.status(400).json({
+    //             success:false,
+    //             msg:"Project Non-existence"
+    //         })
+    //     }
+           
+    //     const task = await Task.create({
+    //         taskID,
+    //         taskName,
+    //         sDate,
+    //         eDate,            
+    //         project,
+    //         projectId:projectid,
+    //         user:req.user._id,
+    //     });
+        
+    //     // counter.notstarted+=1
+    //     // await counter.save()
+    //     const taskAdd = await Project.findByIdAndUpdate(
+    //         _idproject,
+    //         {$push: { tasks: {task: task._id,name:task.taskName}}},
+    //         {new:true, upsert:true}
+    //     ).populate('tasks').exec();
+        
+    //     res.status(200).json({
+    //         success:true,
+    //         msg:"Task Added Successfully",
+    //         task,
+    //         taskAdd                    
+    //     })
+
+    // }catch(err){
+    //     console.log(err)
+    // }
+    try {
+        const { taskID, taskName, sDate, eDate, project } = req.body;
+    
+        const projectid = await Project.findOne({ projectName: project }).select(
+          "projectID -_id"
+        );
+        const _idproject = await Project.findOne({ projectName: project }).select(
+          "_id"
+        );
+    
+        if (!(_idproject && projectid)) {
+          return res.status(400).json({
+            success: false,
+            msg: "Project Non-existence",
+          });
         }
-        // const counter = await Taskcounter.findOne({user:req.user._id})     
-        // if(!counter){
-        //     const createtaskcounter = await Taskcounter.create({
-        //         user:req.user._id,
-        //         notstarted:1
-        //     })
-        //     return res.status(200).json({createtaskcounter})
-        // }   
+    
+        if (!req.files) {
+          res.status(400).json({
+            msg: "Files Doesnt Exist",
+          });
+        }
+    
+        let fileUploader = cloudinary.v2.uploader.upload(
+          req.files.info.tempFilePath,
+          {
+            folder: "Task Files",
+          }
+        );
+    
+        req.body.info = {
+          id: fileUploader.public_id,
+          secure_url: fileUploader.secure_url,
+        };
+    
+        req.body.user = req.user.id;
+    
         const task = await Task.create({
-            taskID,
-            taskName,
-            sDate,
-            eDate,            
-            project,
-            projectId:projectid,
-            user:req.user._id,
+          taskID,
+          taskName,
+          sDate,
+          eDate,
+          project,
+          info,
+          projectId: projectid,
+          user: req.user._id,
         });
-        
-        // counter.notstarted+=1
-        // await counter.save()
+    
         const taskAdd = await Project.findByIdAndUpdate(
-            _idproject,
-            {$push: { tasks: {task: task._id,name:task.taskName}}},
-            {new:true, upsert:true}
-        ).populate('tasks').exec();
-        
+          _idproject,
+          { $push: { tasks: { task: task._id, name: task.taskName } } },
+          { new: true, upsert: true }
+        )
+          .populate("tasks")
+          .exec();
+    
         res.status(200).json({
-            success:true,
-            msg:"Task Added Successfully",
-            task,
-            taskAdd                    
-        })
-
-    }catch(err){
-        console.log(err)
-    }
+          success: true,
+          msg: "Task Added Successfully",
+          task,
+          taskAdd,
+        });
+      } catch (err) {
+        console.log(err);
+      }
 }
 
 exports.getTask = async(req,res) => {
@@ -141,3 +207,37 @@ exports.getStatusCount = async(req,res)=>{
         console.log(e)
     }
 }
+
+exports.downloadFile = async (req, res) => {
+    try {
+      const publicID = req.params.id;
+      const fileUrl = cloudinary.v2.uploader.download(publicID, {
+        resource_type: auto,
+      });
+  
+      //res.setHeader("Content-Disposition", "attachment; filename=" + publicID);
+      //res.setHeader("Content-Type", "application/octet-stream");
+  
+      const filePath = `./downloads/${publicID}`;
+      const writeStream = fs.createWriteStream(filePath);
+  
+      fileUrl
+        .pipe(writeStream)
+        .on("error", function (err) {
+          console.log(error);
+          return res.status(500).json({
+            success: false,
+            msg: "Downloading error",
+          });
+        })
+        .on("finish", function () {
+          console.log("File Downloaded");
+          return res.status(200).json({
+            success: true,
+            msg: "File Downloaded Successfully",
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+};

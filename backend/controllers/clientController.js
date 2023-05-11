@@ -34,3 +34,13 @@ exports.getClient = async (req, res) => {
     console.log(error);
   }
 };
+
+exports.clientCount = async(req,res)=>{
+  try{
+    const countClient = await Client.find({user:req.user._id})
+    const lengthClient = countClient.length || 0
+    res.status(200).json({success:true,lengthClient})
+  }catch(e){
+    console.log(e)
+  }
+}

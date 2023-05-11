@@ -22,14 +22,20 @@ const taskSchema = mongoose.Schema({
     //required:true 
   },
   projectId:{
-    type:String,
-    required:true
+    type:String
   },
   user: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
   },
-  
+  info: {
+    id: {
+      type: String,
+    },
+    url: {
+      type: String,
+    },
+  },  
   createdAt: {
     type: Date,
     default: Date.now,

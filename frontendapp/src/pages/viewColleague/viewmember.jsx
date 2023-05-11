@@ -1,18 +1,18 @@
 import React from 'react'
 import Sidebar from '../../components/Sidebar/sidebar'
-import View5 from '../../components/Views/view5'
+import View6 from '../../components/Views/view6'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './viewprojects.scss'
+import './viewmember.scss'
 
-const ViewProjects = () => {
+const ViewMember = () => {
     return (
         <div className='main-container d-flex' id='page-one'>
             <Sidebar />
-            <div className='vp'>
-                <View5 />
+            <div className='vc'>
+                <View6 />
             </div>
         </div>
     )
 }
 
-export default ViewProjects
+export default ViewMember

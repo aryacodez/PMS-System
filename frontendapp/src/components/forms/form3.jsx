@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo  } from 'react'
 import './form3.scss'
+import projectId from '../../Generator/projectId'
+
 const Form3 = () => {
+  
   const [id, setId] = useState("");
   const [desc, setDesc] = useState("");
   const [name, setName] = useState("");
   const [sdate, setSdate] = useState("");
   const [edate, setEdate] = useState("");
+  const project_id = useMemo(() => '#' + projectId.generateId(), []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +19,7 @@ const Form3 = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        projectID: id,
+        projectID: project_id,
         projectName: name,
         Description: desc,
         sDate: sdate,
@@ -35,6 +39,8 @@ const Form3 = () => {
         setSdate("");
         setEdate("");
       }).catch(err => console.log(err));
+      const newProjectId = '#' + projectId.generateId();
+      setId(newProjectId);
   }
 
   return (
@@ -52,9 +58,10 @@ const Form3 = () => {
                   type='text'
                   className='form-control mt-4 pb-3 text-start'
                   placeholder='eg: C1745'
-                  id='project_id'
-                  value={id}
+                  id='project_idss'
+                  value={id || project_id}
                   onChange={(e) => setId(e.target.value)}
+                  readOnly
                 />
               </div>
               <div className='mb-5 mt-5'>
@@ -114,47 +121,7 @@ const Form3 = () => {
             </div>
           </div>
         </form>
-      </div>
-
-      {/* Second Style */}
-
-      {/* <div className='container-sm px-xxl-5 pb-xxl-5'>
-        <p className='h2 fw-bolder pb-5'>Add Projects</p>
-        <form>
-          <div className= 'pt-xxl-4 bg-white pe-5 ps-5 me-5 ms-5 pb-5 rounded shadow flex-fill'>
-            <div className='mb-4'>
-              <label for='project_id' className='fs-5 fw-bolder'>Project ID</label>
-              <input type='text' className='form-control mt-4' placeholder='eg: C1745' id='project_id' />
-            </div>
-
-            <div className='mb-4'>
-              <label for='project_name' className='fs-5 fw-bolder'>Project Name</label>
-              <input type='text' className='form-control mt-4' placeholder='eg: Weather App Development' id='project_name' />
-            </div>
-
-            <div className='mb-4'>
-              <label for='project_id' className='fs-5 fw-bolder'>Project Name</label>
-              <textarea class="form-control mt-4" aria-label="With textarea" rows="4" cols="50"></textarea>
-            </div>
-
-            <div className='row'>
-              <div className='col'>
-                <div className='mb-4'>
-                  <label for="dateInput" className='fs-5 fw-bolder'>Start Date</label>
-                  <input type="date" class="form-control mt-4" id="dateInput" name="date" />
-                </div>
-              </div>
-              <div className='col'>
-                <div className='mb-4'>
-                  <label for="dateInput" className='fs-5 fw-bolder'>End Date</label>
-                  <input type="date" class="form-control mt-4" id="dateInput" name="date" />
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </form>
-      </div> */}
+      </div>      
     </>
   )
 }

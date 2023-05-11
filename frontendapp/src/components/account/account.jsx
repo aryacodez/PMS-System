@@ -74,11 +74,11 @@ const Account = () => {
             <div className='col-6'>
 
               <div class="text-center">
-                <img src='https://assets.telegraphindia.com/telegraph/2023/Apr/1682818971_file7oc013c2h8z1h4ofk1gc.gif' className="rounded-circle" alt="..." style={{ height: '200px', width: '200px' }} />
+                <img src='https://www.freeiconspng.com/thumbs/human-icon-png/person-outline-icon-png-person-outline-icon-png-person-17.png' className="rounded-circle" alt="..." style={{ height: '200px', width: '200px' }} />
               </div>
 
               <div className='mb-4'>
-                <label className='mb-2 fs-5'>Email</label>
+                <label className='mb-2 fs-5 fw-bolder'>Email</label>
                 <input
                   type='email'
                   placeholder='John@gmail.com'
@@ -91,7 +91,7 @@ const Account = () => {
               </div>
 
               <div className='mb-4'>
-                <label className='mb-2 fs-5'>Mobile Number</label>
+                <label className='mb-2 fs-5 fw-bolder'>Mobile Number</label>
                 <input
                   type='tel'
                   placeholder='9999988888'
@@ -103,7 +103,7 @@ const Account = () => {
               </div>
 
               <div className='mb-4'>
-                <label className='mb-2 fs-5'>Address</label>
+                <label className='mb-2 fs-5 fw-bolder'>Address</label>
                 <input
                   type='text'
                   placeholder='14/5 Denver Lane, North Road, Zip code - 11470'
@@ -114,21 +114,21 @@ const Account = () => {
                 />
               </div>
 
-              <div className='mb-4 d-flex flex-row-reverse bd-highlight'>
+              {/* <div className='mb-4 d-flex flex-row-reverse bd-highlight'>
                 <button type="button" class="btn btn-outline-info">Request for Admin Access</button>
-              </div>
+              </div> */}
 
             </div>
 
             <div className='col-6'>
 
               <div className='mb-4 mt-4'>
-                <label className='mb-2 fs-5'>User Id</label><br />
-                <label className='mb-2 fs-5'>NAME#152%&</label><br />
+                <label className='mb-2 fs-5 fw-bolder'>User Id</label><br />
+                <label className='mb-2 fs-5'>{profile.uniqueid}</label><br />
               </div>
 
               <div className='mb-4'>
-                <label className='mb-2 fs-5'>Name</label>
+                <label className='mb-2 fs-5 fw-bolder'>Name</label>
                 <input
                   type='text'
                   placeholder='John Doe'
@@ -140,7 +140,7 @@ const Account = () => {
               </div>
 
               <div className='mb-4'>
-                <label className='mb-2 fs-5'>Password</label>
+                <label className='mb-2 fs-5 fw-bolder'>Password</label>
                 <input
                   type='password'
                   placeholder='Password must be at least of 5 Characters'
@@ -152,7 +152,7 @@ const Account = () => {
               </div>
 
               <div className='mb-4'>
-                <label className='mb-2 fs-5'>Organization</label>
+                <label className='mb-2 fs-5 fw-bolder'>Organization</label>
                 <input
                   type='text'
                   placeholder='ABC Private Limited'
@@ -164,7 +164,7 @@ const Account = () => {
               </div>
 
               <div className='mb-4'>
-                <label className='mb-2 fs-5'>Gender </label>
+                <label className='mb-2 fs-5 fw-bolder'>Gender </label>
                 <select className="form-select form-select-md" aria-label=".form-select-lg example" value={gender || profile.gender} onChange={(e) => setGender(e.target.value)}>
                   <option value=''>Select Gender</option>
                   <option value='Male'>Male</option>

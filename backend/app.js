@@ -24,11 +24,13 @@ const project = require("./routes/projectRoute");
 const client = require("./routes/clientRoute");
 const task = require("./routes/taskRoute");
 const count = require("./routes/countRoute");
+const colleageue = require("./routes/colleagueRoute");
 
 app.use("/api/v1", user);
 app.use("/api/v1", project);
 app.use("/api/v1", client);
 app.use("/api/v1", task);
 app.use("/api/v1", count);
+app.use("/api/v1", colleageue);
 
 module.exports = app;

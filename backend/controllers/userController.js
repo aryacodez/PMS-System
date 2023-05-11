@@ -11,15 +11,10 @@ cloudinary.config({
 
 exports.register = async (req, res) => {
   try {
-    if(!req.files){
-      return res.status(400).json({
-        success:false,
-        msg:"Image need to be uploaded"
-      })
-    }
-    const {uniqueid, name, email, password, mobilenumber } = req.body;
+    
+    const {uniqueid, name, email, password } = req.body;
 
-    if (!name || !email || !password || !uniqueid || !mobilenumber) {
+    if (!name || !email || !password || !uniqueid) {
       return res.status(400).json({
         msg: "Credintials Missing",
       });
@@ -33,24 +28,12 @@ exports.register = async (req, res) => {
       });
     }
     
-    let file = req.files.avatar
-    console.log(file)
-    const result = await cloudinary.v2.uploader.upload(file.tempFilePath,{
-      folder:"users-photo",
-      width:150,
-      crop:"scale"
-    })
-    
+   
     const registerUser = await User.create({
-      uniqueid,
-      avatar:{
-        id: result.public_id,
-        url: result.secure_url
-      }, 
+      uniqueid,      
       name,
       email,
-      password,
-      mobilenumber
+      password      
     });
 
     cookieToken(registerUser, res);
@@ -119,6 +102,23 @@ exports.getLoggedInUserDetails = async (req, res) => {
 
 exports.updateProfile= async(req,res)=>{
   try{
+    // if(!req.files){
+    //   return res.status(400).json({
+    //     success:false,
+    //     msg:"Image need to be uploaded"
+    //   })
+    // }
+    // let file = req.files.avatar
+    // console.log(file)
+    // const result = await cloudinary.v2.uploader.upload(file.tempFilePath,{
+    //   folder:"users-photo",
+    //   width:150,
+    //   crop:"scale"
+    // })
+    // avatar:{
+    //   id: result.public_id,
+    //   url: result.secure_url
+    // }, 
     const user = await User.findById(req.user.id)
     if(!user){
       return res.status(400).json({
@@ -137,6 +137,37 @@ exports.updateProfile= async(req,res)=>{
       success:true,
       msg:"User Updated Successfully"
     })
+  }catch(e){
+    console.log(e)
+  }
+}
+
+
+exports.getAllUsers = async(req,res)=>{
+  try{
+    const user = await User.find()
+    res.status(200).json({
+      success:true,
+      user
+    })
+  }catch(e){
+    console.log(e)
+  }
+}
+
+exports.updateUserStatus = async(req,res)=>{
+  try{
+    const {role}= req.body
+    const user = await User.findById({_id:req.params.id})
+    if(!user){
+      return res.status(400).json({
+        success:false,
+        msg:"User not found"
+      })
+    }
+    user.role=role
+    await user.save()
+    return res.status(200).json({success:true,msg:"User Role Updated"})
   }catch(e){
     console.log(e)
   }

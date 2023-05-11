@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState,useMemo } from 'react'
 import './form1.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useNavigate } from 'react-router-dom'
+import userId from '../../Generator/userId'
+
 const Form1 = () => {
+    const [id, setId] = useState("");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error,setError] = useState("");
+    const user_id = useMemo(() => '#' + userId.generateId(), []);
 
     const navigate = useNavigate();
 
@@ -18,6 +22,7 @@ const Form1 = () => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
+                uniqueid:user_id,
                 name,
                 email,
                 password
@@ -31,11 +36,14 @@ const Form1 = () => {
             }else{
                 setError("Error")
             }
+            setId("");
             setName("");
             setEmail("");
             setPassword("");
         })
         .catch((err) => console.log(err))
+        const newUserId =  '#' + userId.generateId();
+        setId(newUserId);
 
     }
 
@@ -47,6 +55,18 @@ const Form1 = () => {
                     <div className='col-md-6 bg-white p-5 flex-fill rounded shadow' style={{ width: '25em' }}>
                         <p className="h1 text-center">Signup</p>
                         <form onSubmit={handleSubmit}>
+                            <div className='form-group mb-3'>
+                                <label className='mb-2'>User Id</label>
+                                <input
+                                    type='text'
+                                    className='form-control mt-4 pb-3 text-start'
+                                    placeholder='14758'
+                                    id='user_idss'
+                                    value={id || user_id}
+                                    onChange={(e) => setId(e.target.value)}
+                                    readOnly
+                                />
+                            </div>
                             <div className='form-group mb-3'>
                                 <label className='mb-2'>Name</label>
                                 <input

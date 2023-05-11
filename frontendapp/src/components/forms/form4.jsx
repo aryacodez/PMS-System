@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import './form4.scss'
+import Form from "react-bootstrap/Form";
+
 const Form4 = () => {
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [sdate, setSdate] = useState("");
   const [edate, setEdate] = useState("");
   const [select, setSelect] = useState("");
+  const [file, setFile] = useState(null);
 
   {/*Fill the Select Value with projects*/ }
   const [table, setTable] = useState([]);
@@ -30,8 +33,9 @@ const Form4 = () => {
         taskID:id,
         taskName:name,
         sDate:sdate,
-        eDate:edate
-        //project:select
+        eDate:edate,
+        project:select,
+        info: file,
       })
     }).then(res => res.json())
       .then(data => {
@@ -41,9 +45,22 @@ const Form4 = () => {
         setName("");
         setSdate("");
         setEdate("");
-        //setSelect("");
+        setSelect("");
+        setFile(null);
+
       }).catch(err => console.log(err))
   }
+    /* Handling File Uploading*/
+    const handleDrop = (e) => {
+      e.preventDefault();
+      const file = e.dataTransfer.files[0];
+      setFile(file);
+    };
+  
+    const handleFileChange = (e) => {
+      const file = e.target.files[0];
+      setFile(file);
+    };
 
   return (
     <>
@@ -117,6 +134,20 @@ const Form4 = () => {
                   </div>
                 </div>
               </div>
+            </div>
+            <div>
+              <Form.Group controlId="formFile" className="mb-3">
+                <Form.Label>
+                  Drag and drop a file here or click to select a file
+                </Form.Label>
+                <Form.Control
+                  type="file"
+                  accept=".jpg, .jpeg, .png, .pdf"
+                  onChange={handleFileChange}
+                  onDrop={handleDrop}
+                  className="dropzone"
+                />
+              </Form.Group>
             </div>
             <div className='row d-flex align-self-center justify-content-center'>
               <button type="submit" className="btn btn-primary mt-xxl-3 w-75 mx-xxl-5 ">Submit</button>

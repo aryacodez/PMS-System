@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import './sidebar.scss'
@@ -10,11 +10,20 @@ const Sidebar = () => {
   const [isDropdownActive1, setDropdownActive1] = useState("false");
   const [isDropdownActive2, setDropdownActive2] = useState("false");
   const [isDropdownActive3, setDropdownActive3] = useState("false");
-
+  const [admin, setAdmin] = useState("")
   const navigate = useNavigate();
+  useEffect(() => {
+    fetch('/api/v1/profile', {
+      method: 'GET'
+    }).then(res => res.json())
+      .then(res => setAdmin(res.user.role))
+  }, [])
+  console.log(admin)
   const handleLogout = async () => {
+
+    //API - 1
     await fetch('/api/v1/logout', {
-      method: 'POST',
+      method: 'GET',
       headers: {
         "Content-Type": "application/json",
       },
@@ -53,13 +62,16 @@ const Sidebar = () => {
               <i className="bi bi-caret-down-fill"></i>
             </a>
             <ul className={isDropdownActive ? "list-unstyled collapse" : "list-unstyled px-5"}>
-              <li>
-                <Link to='/addprojects'>
-                  <a className='text-decoration-none px-5 py-2 d-block'>
-                    Add Projects
-                  </a>
-                </Link>
-              </li>
+              {/* {req.user && req.user.role==='admin'} */}
+              {admin === 'admin' &&
+                <li>
+                  <Link to='/addprojects'>
+                    <a className='text-decoration-none px-5 py-2 d-block'>
+                      Add Projects
+                    </a>
+                  </Link>
+                </li>
+              }
               <li>
                 <Link to='/viewprojects'>
                   <a className='text-decoration-none px-5 py-2 d-block'>
@@ -92,29 +104,6 @@ const Sidebar = () => {
               </li>
             </ul>
           </li>
-          <li onClick={() => setDropdownActive3(!isDropdownActive3)} className='hov'>
-            <a className='text-decoration-none px-5 py-2 d-block'>
-              <i className="bi bi-file-person-fill"></i>
-              <span className='px-2'>Issues</span>
-              <i className="bi bi-caret-down-fill"></i>
-            </a>
-            <ul className={isDropdownActive3 ? "list-unstyled collapse" : "list-unstyled px-5"}>
-              <li>
-                <Link to='/addissues'>
-                  <a className='text-decoration-none px-5 py-2 d-block'>
-                    Add Issues
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link to='/viewissues'>
-                  <a className='text-decoration-none px-5 py-2 d-block'>
-                    View Issues
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </li>
           <li onClick={() => setDropdownActive2(!isDropdownActive2)} className='hov'>
             <a className='text-decoration-none px-5 py-2 d-block'>
               <i className="bi bi-person-lines-fill"></i>
@@ -129,11 +118,13 @@ const Sidebar = () => {
                   </a>
                 </Link>
               </li>
-              <li>
-                <a className='text-decoration-none px-5 py-2 d-block'>
-                  View Colleague
-                </a>
-              </li>
+              <Link to='/viewmembers'>
+                <li>
+                  <a className='text-decoration-none px-5 py-2 d-block'>
+                    View Colleague
+                  </a>
+                </li>
+              </Link>
             </ul>
           </li>
           <li onClick={() => setDropdownActive3(!isDropdownActive3)} className='hov'>
@@ -170,6 +161,16 @@ const Sidebar = () => {
               </a>
             </Link>
           </li>
+          {admin === 'admin' &&
+            <li className='hov'>
+              <Link to='/permissions'>
+                <a className='text-decoration-none px-5 py-2 d-block'>
+                  <i class="bi bi-person-fill-gear"></i>
+                  <span className='px-2'>Permission</span>
+                </a>
+              </Link>
+            </li>
+            }
           <li className='hov'>
             <a className='text-decoration-none px-5 py-2 mt-xxl-5 justify-content-end d-block' onClick={handleLogout}>
               <i className="bi bi-box-arrow-left"></i>
