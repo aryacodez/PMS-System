@@ -31,7 +31,7 @@ const Sidebar = () => {
     })
       .then(() => {
         alert("Logout Successful");
-        navigate("/signin");
+        navigate("/");
       })
       .catch((err) => console.log(err));
   };
