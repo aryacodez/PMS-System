@@ -13,34 +13,33 @@ const taskSchema = mongoose.Schema({
   eDate: {
     type: String,
   },
-  status:{
-    type:String,
-    default:"Not Started"
+  status: {
+    type: String,
+    default: "Not Started",
   },
-  project:{
-    type: String,   
-    //required:true 
+  project: {
+    type: String,
+    //required:true
   },
-  projectId:{
-    type:String
+  projectId: {
+    type: String,
   },
   user: {
     type: mongoose.Schema.ObjectId,
     ref: "User",
   },
-  info: {
-    id: {
-      type: String,
-    },
-    url: {
-      type: String,
-    },
-  },  
+  // info: {
+  //   id: {
+  //     type: String,
+  //   },
+  //   url: {
+  //     type: String,
+  //   },
+  // },
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-
-module.exports = mongoose.model("Task",taskSchema);
+module.exports = mongoose.model("Task", taskSchema);
